@@ -60,6 +60,7 @@ export const SidebarData: NavItem[] = [
     title: "Reports",
     path: "",
     icon: <MdIcons.MdOutlineAnalytics />,
+
     subMenuItems: [
       {
         title: "Customer Licenses",

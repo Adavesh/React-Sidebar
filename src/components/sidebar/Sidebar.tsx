@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SidebarData } from "../../uiModels/SidebarData";
+import { NavItem, SidebarData } from "../../uiModels/SidebarData";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 import { useState } from "react";
 import SidebarMenuItem from "./SidebarMenuItem";
@@ -10,7 +10,7 @@ const SidebarContainer = styled.div<{ $collapsed: boolean }>`
   flex-direction: column;
   justify-content: flex-start;
   align-items: ${({ $collapsed }) => ($collapsed ? "center" : "left")};
-  height: 93vh;
+  height: 94vh;
   width: ${({ $collapsed }) => ($collapsed ? "48px" : "16%")};
   min-width: ${({ $collapsed }) => ($collapsed ? "48px" : "200px")};
   border-top: none;
@@ -18,7 +18,8 @@ const SidebarContainer = styled.div<{ $collapsed: boolean }>`
   margin-top: 0px;
   border-radius: 5px;
   transition: 0.1s;
-  overflow-y: scroll;
+  overflow-y: auto;
+  padding-right: 1px;
   &::webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
@@ -49,9 +50,17 @@ const HorizontalLine = styled.div`
 
 function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(true);
+  const [selectedPath, setSelectedPath] = useState("");
 
   const toggleCollapse = () => {
     setIsExpanded(!isExpanded);
+  };
+
+  const onMenuItemClicked = (item: NavItem) => {
+    console.log("Selected Path = " + item.path);
+    if (!item.path) return;
+    console.log;
+    setSelectedPath(item.path);
   };
 
   return (
@@ -63,7 +72,7 @@ function Sidebar() {
               {isExpanded ? <FaChevronCircleLeft onClick={toggleCollapse} /> : <FaChevronCircleRight onClick={toggleCollapse} />}
             </HorizontalLine>
           )}
-          <SidebarMenuItem navItem={item} isSidebarExpanded={isExpanded}></SidebarMenuItem>
+          <SidebarMenuItem navItem={item} isSidebarExpanded={isExpanded} onClick={onMenuItemClicked} selectedPath={selectedPath}></SidebarMenuItem>
         </div>
       ))}
     </SidebarContainer>
