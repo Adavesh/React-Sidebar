@@ -5,6 +5,7 @@ import { SidebarMenuDataItem } from "../../uiModels/SidebarMenuDataItem";
 import { useState } from "react";
 
 const SidebarLabel = styled.span`
+  font-weight: 600;
   margin-left: 16px;
 `;
 
