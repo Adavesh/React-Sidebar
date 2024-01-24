@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import SidebarMenuItem from "./SidebarMenuItem";
-import { SidebarData } from "../../uiModels/SidebarMenuDataItem";
+import { SidebarData } from "../../uiModels/SidebarData";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 import { useState } from "react";
+import SidebarMenuItem from "./SidebarMenuItem";
 
 const SidebarContainer = styled.div<{ $collapsed: boolean }>`
   background: #fafafa;
@@ -12,11 +12,12 @@ const SidebarContainer = styled.div<{ $collapsed: boolean }>`
   align-items: ${({ $collapsed }) => ($collapsed ? "center" : "left")};
   height: 93vh;
   width: ${({ $collapsed }) => ($collapsed ? "48px" : "16%")};
+  min-width: ${({ $collapsed }) => ($collapsed ? "48px" : "200px")};
   border-top: none;
   box-shadow: 5px 0px 5px lightgray;
   margin-top: 0px;
   border-radius: 5px;
-  transition: 0.3s;
+  transition: 0.1s;
   overflow-y: scroll;
   &::webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -47,34 +48,24 @@ const HorizontalLine = styled.div`
 `;
 
 function Sidebar() {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const toggleCollapse = () => {
-    setSidebarCollapsed(!sidebarCollapsed);
+    setIsExpanded(!isExpanded);
   };
 
   return (
-    <SidebarContainer $collapsed={sidebarCollapsed}>
-      {SidebarData &&
-        SidebarData.map((item, index) => (
-          <div key={index}>
-            {index == 0 && (
-              <HorizontalLine>
-                {!sidebarCollapsed && <FaChevronCircleLeft color="gray" className="toggle" onClick={toggleCollapse} />}
-                {sidebarCollapsed && <FaChevronCircleRight color="gray" className="toggle" onClick={toggleCollapse} />}
-              </HorizontalLine>
-            )}
-            <SidebarMenuItem
-              icon={item.icon}
-              path={item.path}
-              title={item.title}
-              SubMenuItems={item.SubMenuItems}
-              iconClosed={item.iconClosed}
-              iconOpened={item.iconOpened}
-              state={sidebarCollapsed ? "collapsed" : "expanded"}
-            ></SidebarMenuItem>
-          </div>
-        ))}
+    <SidebarContainer $collapsed={!isExpanded}>
+      {SidebarData.map((item, index) => (
+        <div key={index}>
+          {index == 0 && (
+            <HorizontalLine>
+              {isExpanded ? <FaChevronCircleLeft onClick={toggleCollapse} /> : <FaChevronCircleRight onClick={toggleCollapse} />}
+            </HorizontalLine>
+          )}
+          <SidebarMenuItem navItem={item} isSidebarExpanded={isExpanded}></SidebarMenuItem>
+        </div>
+      ))}
     </SidebarContainer>
   );
 }

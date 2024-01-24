@@ -1,17 +1,14 @@
 import React from "react";
 import * as MdIcons from "react-icons/md";
 
-export interface SidebarMenuDataItem {
+export interface NavItem {
   title: string;
   path: string;
   icon: React.JSX.Element;
-  iconClosed?: React.JSX.Element;
-  iconOpened?: React.JSX.Element;
-  SubMenuItems?: SidebarMenuDataItem[];
-  state?: "collapsed" | "expanded";
+  subMenuItems?: NavItem[];
 }
 
-export const SidebarData: SidebarMenuDataItem[] = [
+export const SidebarData: NavItem[] = [
   {
     title: "Home",
     path: "/home",
@@ -26,9 +23,7 @@ export const SidebarData: SidebarMenuDataItem[] = [
     title: "Manage",
     path: "",
     icon: <MdIcons.MdOutlineManageAccounts />,
-    iconClosed: <MdIcons.MdArrowDropDown />,
-    iconOpened: <MdIcons.MdOutlineArrowDropUp />,
-    SubMenuItems: [
+    subMenuItems: [
       {
         title: "Workspaces",
         path: "/manage/workspaces",
@@ -65,9 +60,7 @@ export const SidebarData: SidebarMenuDataItem[] = [
     title: "Reports",
     path: "",
     icon: <MdIcons.MdOutlineAnalytics />,
-    iconClosed: <MdIcons.MdArrowDropDown />,
-    iconOpened: <MdIcons.MdOutlineArrowDropUp />,
-    SubMenuItems: [
+    subMenuItems: [
       {
         title: "Customer Licenses",
         path: "/reports/customer-license-overview",
