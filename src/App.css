@@ -1,13 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Play:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+@import "@progress/kendo-theme-default/dist/all.css";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 11px;
 }
 
 body {
-  font-family: "Montserrat";
+  font-family: "Inter";
   background: lightgray;
+}
+
+.k-grid {
+  font-size: 10px;
+}
+.k-grid td {
+  line-height: 2em;
 }

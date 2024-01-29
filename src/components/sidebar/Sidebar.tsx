@@ -12,7 +12,7 @@ const SidebarContainer = styled.div<{ $collapsed: boolean }>`
   align-items: ${({ $collapsed }) => ($collapsed ? "center" : "left")};
   height: 94vh;
   width: ${({ $collapsed }) => ($collapsed ? "48px" : "16%")};
-  min-width: ${({ $collapsed }) => ($collapsed ? "48px" : "200px")};
+  min-width: ${({ $collapsed }) => ($collapsed ? "48px" : "250px")};
   border-top: none;
   box-shadow: 5px 0px 5px lightgray;
   margin-top: 0px;
