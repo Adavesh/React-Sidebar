@@ -14,7 +14,7 @@ const iconDropDown = <MdIcons.MdArrowDropDown />;
 const iconDropUp = <MdIcons.MdOutlineArrowDropUp />;
 
 const SidebarLabel = styled.span`
-  font-weight: 600;
+  font-weight: 500;
   margin-left: 16px;
 `;
 

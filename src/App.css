@@ -1,21 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Play:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 @import "@progress/kendo-theme-default/dist/all.css";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 body {
-  font-family: "Inter";
+  font-family: "Josefin Sans", normal;
   background: lightgray;
 }
 
 .k-grid {
-  font-size: 10px;
+  //font-size: 10px;
+  font-weight: 400;
 }
 .k-grid td {
   line-height: 2em;

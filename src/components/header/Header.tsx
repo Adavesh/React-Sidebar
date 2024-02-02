@@ -18,6 +18,7 @@ const HeaderContainer = styled.div`
 const PageTitle = styled.h3`
   margin-left: 10px;
   color: #555;
+  align-self: center;
 `;
 
 const AccountSection = styled(Link)`
@@ -44,7 +45,7 @@ function Header() {
     <HeaderContainer>
       <LogoSection to="/home">
         <img src={vite} height="22px" width="22px"></img>
-        <PageTitle>Admin Portal</PageTitle>
+        <PageTitle>ADMIN PORTAL</PageTitle>
       </LogoSection>
       <AccountSection to="/myprofile">
         <MdOutlineAccountCircle style={{ marginRight: "5px" }}></MdOutlineAccountCircle>Adavesh Managaon
