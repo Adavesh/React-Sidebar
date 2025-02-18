@@ -10,6 +10,15 @@
     <title>Vite + React + TS</title>
   </head>
   <body>
+    <script>
+      
+
+    if (window.location.hostname !== 'adavesh.com') {
+      let subdomain = window.location.hostname.split(".")[0];
+      if (subdomain && subdomain !== "www") {
+        alert("Working!!!");
+      }
+    </script>
     <div id="root"></div>
     <H1>Welcome Boss!!</H1>
   </body>
