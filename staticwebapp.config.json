@@ -1,1 +1,7 @@
-{}
+{
+  "navigationFallback": {
+    "exclude": [ "/public/*.{png,jpg,gif}", "/css/*" ],
+    "rewrite": "/index.html",
+    "route": "/*"
+  }
+}
