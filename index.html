@@ -12,14 +12,21 @@
   <body>
     <script>
       
-
-    if (window.location.hostname !== 'adavesh.com') {
-      let subdomain = window.location.hostname.split(".")[0];
-      if (subdomain && subdomain !== "www") {
-        alert(subdomain + " ....Working!!!");
-      }
-      else{
-        alert(" NOT....Working!!!");
+      console.log("Entering script!");
+      console.log("HostName = " + window.location.hostname);
+      
+      if (window.location.hostname !== 'adavesh.com')
+      {
+          let subdomain = window.location.hostname.split(".")[0];
+          
+          if (subdomain && subdomain !== "www") 
+          {
+            alert(subdomain + " ....Working!!!");
+          }
+          else
+          {
+            alert(" NOT....Working!!!");
+          }
       }
     </script>
     <div id="root"></div>
